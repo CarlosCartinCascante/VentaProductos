@@ -1,0 +1,39 @@
+﻿@model List<VentaProductos.Models.FamiliaProducto>
+
+@{
+    ViewBag.Title = "VerFamiliaProducto";
+}
+
+<h2>Lista Familia de Productos</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID Familia</th>
+      <th scope="col">Nombre Familia</th>
+      <th scope="col">Usuario Ingreso</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var familiaProducto in Model)
+    {
+        <tr>
+          <th scope="row">@familiaProducto.IDFamilia</th>
+          <td>@familiaProducto.NombreFamilia</td>
+          <td>@familiaProducto.UsuarioIngreso</td>
+          <td>@familiaProducto.Estado</td>
+          <td>
+            <div class="d-flex">
+                <form method="post">
+                    <input asp-action="BorrarFamiliaProducto" asp-route-idFamiliaProducto="@familiaProducto.IDFamilia" type="submit" class="btn btn-danger" value="Borrar"/>
+                </form>
+                <a asp-action="EditarFamiliaProducto" asp-route-idFamiliaProducto="@familiaProducto.IDFamilia" class="btn btn-primary ms-2">Editar</a>
+            </div>
+          </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+<a href="/Home/Index" class="btn btn-primary my-2">Regresar</a>

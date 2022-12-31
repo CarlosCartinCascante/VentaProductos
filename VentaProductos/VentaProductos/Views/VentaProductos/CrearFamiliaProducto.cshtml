@@ -1,0 +1,29 @@
+﻿@model VentaProductos.Models.FamiliaProducto
+
+@{
+    ViewBag.Title = "CrearFamiliaProducto";
+}
+
+<h2>Crear Familia de Productos</h2>
+
+<form method="post" action="CrearFamiliaProducto">
+    <div class="mb-3">
+        <label for="nombreFamilia" class="form-label">Nombre Familia de Productos</label>
+        <input asp-for="@Model.NombreFamilia" name="nombreFamilia" class="form-control">
+        <span asp-validation-for="@Model.NombreFamilia" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="usuarioIngreso" class="form-label">Nombre usuario que crea el producto</label>
+        <input asp-for="@Model.UsuarioIngreso" name="usuarioIngreso" class="form-control">
+        <span asp-validation-for="@Model.UsuarioIngreso" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="estado" class="form-label">Estado del producto</label>
+        <input asp-for="@Model.Estado" min="1"  class="form-control" name="estado">
+        <span asp-validation-for="@Model.Estado" class="text-danger"></span>
+    </div>
+    <div class="d-flex mb-3">
+        <input type="submit" class="btn btn-success me-4" value="Crear Familia de Producto">
+        <a href="/Home/Index" class="btn btn-secondary">Regresar</a>
+    </div>
+</form>

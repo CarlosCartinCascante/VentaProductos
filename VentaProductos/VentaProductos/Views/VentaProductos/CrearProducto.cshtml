@@ -1,0 +1,40 @@
+﻿@model VentaProductos.Models.Producto;
+
+@{
+    ViewBag.Title = "CrearProducto";
+}
+
+<h2>Crear Producto</h2>
+
+<form method="post" action="CrearProducto">
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción del producto</label>
+        <textarea class="form-control" asp-for="@Model.Descripcion" name="descripcion" rows="3"></textarea>
+        <span asp-validation-for="@Model.Descripcion" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio del producto</label>
+        <input asp-for="@Model.Precio" name="precio" class="form-control" placeholder="Use coma como separador para valores decimales: 12,53">
+        <span asp-validation-for="@Model.Precio" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="saldoInventario" class="form-label">Saldo del inventario</label>
+        <input asp-for="@Model.SaldoInventario" name="saldoInventario" class="form-control" placeholder="Use coma como separador para valores decimales: 12,53">
+        <span asp-validation-for="@Model.SaldoInventario" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="usuarioIngreso" class="form-label">Usuario que crea el producto</label>
+        <input asp-for="@Model.UsuarioIngreso" class="form-control" name="usuarioIngreso">
+        <span asp-validation-for="@Model.UsuarioIngreso" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="idFamilia" class="form-label">ID de la familia del producto</label>
+        <input asp-for="@Model.IDFamilia" min="1" class="form-control"  name="idFamilia">
+        <span asp-validation-for="@Model.IDFamilia" class="text-danger"></span>
+    </div>
+    <div class="d-flex mb-3">
+        <input type="submit" class="btn btn-success me-4" value="Crear Producto">
+        <a href="/Home/Index" class="btn btn-secondary">Regresar</a>
+    </div>
+</form>
+
